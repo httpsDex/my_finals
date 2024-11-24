@@ -10,7 +10,7 @@ function getProducts() {
     let html = "" // Initialize empty HTML string
     const productTable = document.getElementById("productTableBody")
 
-    fetch("http://localhost:1804/api/get", { mode: "cors" })
+    fetch("https://server-zdt4.onrender.com/api/get", { mode: "cors" })
         .then((response) => {
             if (!response.ok) {
                 throw new Error(`Error: ${response.status} - ${response.statusText}`)
@@ -72,7 +72,7 @@ closeEditBtn.addEventListener('click', () => {
 function handleEdit(event) {
     const id = event.target.dataset.id
 
-    fetch(`http://localhost:1804/api/request/${id}`, { method: "GET", mode: "cors" })
+    fetch(`https://server-zdt4.onrender.com/api/request/${id}`, { method: "GET", mode: "cors" })
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch product details")
@@ -118,7 +118,7 @@ function saveEditFromModal(event) {
         return
     }
 
-    fetch(`http://localhost:1804/api/update/${id}`, {
+    fetch(`https://server-zdt4.onrender.com/api/update/${id}`, {
         method: "PUT",
         mode: "cors",
         headers: { "Content-Type": "application/json" },
@@ -152,7 +152,7 @@ document.getElementById("editProductForm").addEventListener("submit", saveEditFr
 function handleDelete(event) {
     const id = event.target.dataset.id
     if (confirm("Are you sure you want to delete this product?")) {
-        fetch(`http://localhost:1804/api/delete/${id}`, { method: "DELETE" })
+        fetch(`https://server-zdt4.onrender.com/api/delete/${id}`, { method: "DELETE" })
             .then((response) => {
                 if (response.ok) {
                     alert(`Deleted product with ID: ${id}`)
