@@ -9,7 +9,7 @@ submit_btn.addEventListener("click", (event) => {
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value
 
-    fetch("http://localhost:1804/api/login", {
+    fetch("https://server-zdt4.onrender.com/api/login", {
         method: "POST",
         mode: "cors",
         headers: {
