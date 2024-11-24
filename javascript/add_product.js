@@ -22,7 +22,7 @@ addProductForm.addEventListener('submit', (event) => {
   const formData = new FormData(addProductForm)
   const data = Object.fromEntries(formData)
 
-  fetch('http://localhost:1804/api/post', {
+  fetch('https://server-zdt4.onrender.com/api/post', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
