@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #5f5b5b;
+}
+
+
+
+/* Sidebar buttons */
+ul.nav {
+    margin: 0 auto;
+    text-align: left;
+    width: fit-content;
+}
+
+.nav-item {
+    display: flex;
+    margin: 5px auto;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+.nav li a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nav li a:hover{
+    height: 50px;
+    width: 100%;
+    background-color: rgb(200, 11, 11);
+    transform: scale(1.05);
+}
+
+/* main container */
+.main_container {
+    display: flex;
+    height: 100vh;
+}
+
+
+
+
+
+/* sidebar */
+aside {
+    width: 220px;
+    background-color: #6a1b1a;
+}
+
+.profile-container {
+    color: white; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+
+
+
+/* navbar */
+.navbar {
+    background-color: #7b1f1f;
+    border-bottom: 1px solid #b4aeadd3;
+    padding-right: 15px;
+    margin-bottom: 60px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.411);
+}
+
+.dropdown {
+    border: none;
+    border-radius: 5px;
+    background-color: #5f5b5b;
+
+}
+
+
+
+
+/* contents */
+.content_area {
+    background-color: #f4f1f1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.contents {
+    background-color: #f4f1f1;
+    margin: 10px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.267);
+}
+
+.content-section {
+    background-color: #f4f1f1;
+}
+
+
+
+
+/* products section */
+
+.table th {
+    background-color: #b13a3a;
+}
+
+.table tbody tr:hover {
+    background-color: #f1e0e0;
+}
+.btn {
+    background-color: #b13a3a;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #d32f2f;
+}
+
+#products {
+    position: relative;
+}
+
+#products #add-product {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #b13a3a;
+    position: absolute;
+    top: 2px;
+    right: 10px;
+}
+
+#products #add-product:hover {
+    background-color: #d32f2f;
+}
+
+.btn.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+.btn.edit-btn:hover {
+    background-color: #45a049;
+}
+
+.btn.delete-btn:hover {
+    background-color: #e53935;
+}
+
+/* Submit button */
+.add-product-btn {
+    background-color: #b13a3a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-product-btn:hover {
+    background-color: #d32f2f;
+}
+
+.edit-product-btn {
+    background-color: #b13a3a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-product-btn:hover {
+    background-color: #d32f2f;
+}
+
+
+
+/* Inventory table */
+.btn.add-stock-btn {
+    color: white;
+    background-color: #b13a3a;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-stock-btn {
+    background-color: #b13a3a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-stock-btn:hover {
+    background-color: #d32f2f;
+}
+
+
+/* Modal content box */
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content #description {
+    width: 100%;
+}
+
+.close {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+
+
+ /* inventory tble status */
+
+ .quantity-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stock-status {
+    margin: auto;
+}
+
+ .stock-low {
+    color: red;
+    font-weight: bold;
+}
+.stock-medium {
+    color: orange;
+    font-weight: bold;
+}
+.stock-high {
+    color: green;
+    font-weight: bold;
+}

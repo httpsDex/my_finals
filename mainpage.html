@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    
+    <div class="main_container">
+            <aside class="col-auto col-md-3 col-lg-3 min-vh-100 d-flex flex-column justify-content-between">
+                <div class="p-2">
+                    <div class="profile-container">
+                        <span class="fs-4 d-none ms-3 d-sm-inline">Sales & Inventory Management</span>
+                    <hr>
+                        <div class="profile">
+                            <img src="pictures/maloi.jpg" alt="user">
+                            <span class="admin-name d-sm-inline">Maloi Ricalde</span>
+                            <span class="role-display">Admin</span>
+                        </div>
+                    </div>
+
+                    <ul class="nav nav-pills flex-column mt-4">
+                        <hr>
+                        <li class="nav-item py-2 py-sm-0">
+                            <a href="#" class="nav-link text-white" id="dashboardLink" aria-current="page">
+                                <i class="fs-5 fa fa-gauge"></i><span class="fs-4 ms-3 d-none d-sm-inline">Dashboard</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white" id="productsLink" aria-current="page">
+                                <i class="fs-5 fa fa-table-list"></i><span class="fs-4 ms-3 d-none d-sm-inline">Products</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white" id="inventoryLink" aria-current="page">
+                                <i class="fs-5 fa fa-boxes"></i><span class="fs-4 ms-3 d-none d-sm-inline">Inventory</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white" id="salesLink" aria-current="page">
+                                <i class="fs-5 fa fa-money-bill-wave"></i><span class="fs-4 ms-3 d-none d-sm-inline">Sales</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="content_area">
+                <nav class="navbar">
+                    <div class="container d-flex justify-content-end">
+                        <div class="dropdown">
+                            <button class="btn border-none text-white dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-user"></i><span class="ms-2">Admin</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="triggerId">
+                                <button id="user-profile" class="dropdown-item" href="#">Profile</button>
+                                <hr class="dropdown-divider"></hr>
+                                <button id="logout-btn" class="dropdown-item" href="#">Logout </button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+    
+                <div class="contents p-3">
+                    <div class="p-3 col" id="mainContent">
+                        
+                        <div id="dashboard" class="content-section">
+                            <h4>Dashboard</h4>
+                            <p>Welcome to the dashboard.</p>
+                        </div>
+
+                        <div id="products" class="content-section" style="display: none;">
+                            <h4>Products List</h4>
+                            <button type="button" class="btn btn-primary" id="add-product" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                                <i class="fa fa-plus"></i> Add Product
+                              </button>
+                            <br>
+                            <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Product Code</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Brand</th>
+                                    <th scope="col">Cost</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Actions</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="productTableBody">
+                                
+                                </tbody>
+                              </table>
+
+                              <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <span class="close" id="close-add-product">&times;</span>
+                                        <h2>Add Product</h2>
+                                        <form id="addProductForm">
+                                            <label for="prodCode">Product Code:</label>
+                                            <input type="text" id="prodCode" name="prodCode" placeholder="Enter product code" required>                        
+                                            <label for="prodName">Product Name:</label>
+                                            <input type="text" id="prodName" name="prodName" placeholder="Enter product name" required>
+                                            <label for="prodName">Brand:</label>
+                                            <input type="text" id="prodBrand" name="prodBrand" placeholder="Enter product brand" required>                           
+                                            <label for="description">Description:</label>
+                                            <br>
+                                            <textarea id="description" name="description" placeholder="Enter product description" required></textarea>
+                                            <br>
+                                            <label for="cost">Cost:</label>
+                                            <input type="number" id="cost" name="cost" min="0" placeholder="Enter product cost" required>                           
+                                            <label for="srp">SRP:</label>
+                                            <input type="number" id="srp" name="srp" min="0" placeholder="Enter product SRP" required>                          
+                                            <label for="quantity">Quantity:</label>
+                                            <input type="number" id="quantity" name="quantity" min="0" placeholder="Enter product quantity" required>                          
+                                            <button type="submit" class="add-product-btn">Add Product</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <span class="close" id="close-edit">&times;</span>
+                                        <h2>Edit Product</h2>
+                                        <form id="editProductForm">
+                                            <input type="hidden" id="editProductId" name="editProductId">
+                                            <label for="editProdName">Product Name:</label>
+                                            <input type="text" id="editProdName" name="editProdName" placeholder="Enter product name" required>
+                                            <label for="editProdBrand">Product Brand:</label>
+                                            <input type="text" id="editProdBrand" name="editProdBrand" placeholder="Enter product brand" required>                            
+                                            <label for="editSrp">SRP:</label>
+                                            <input type="number" id="editSrp" name="editSrp" min="0" placeholder="Enter product SRP" required>
+    
+                                            <button type="submit" class="edit-product-btn">Update Product</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    
+                        <div id="inventory" class="content-section" style="display: none;">
+                            <h4>Inventory</h4>
+                            <br>
+                            <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Product Code</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Brand</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Inventory / Status</th>
+                                    <th scope="col">Actions</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="inventoryTable">
+                                
+                                </tbody>
+                              </table>
+                        </div>
+                        
+                        <div id="sales" class="content-section" style="display: none;">
+                            <h4>Sales</h4>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script src="/javascript/mainpage.js"></script>
+    <script src="/javascript/product.js"></script>
+    <script src="/javascript/add_product.js"></script>
+    <script src="/javascript/inventory.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
