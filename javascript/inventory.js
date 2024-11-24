@@ -9,7 +9,7 @@ function getInventory() {
     let html = "" // Initialize empty HTML string
     const inventoryTable = document.getElementById("inventoryTable")
 
-    fetch("http://localhost:1804/api/get", { mode: "cors" })
+    fetch("https://server-zdt4.onrender.com/api/get", { mode: "cors" })
         .then((response) => {
             if (!response.ok) {
                 throw new Error(`Error: ${response.status} - ${response.statusText}`)
@@ -87,7 +87,7 @@ function updateStock(id, quantityToAdd) {
         return
     }
     
-    fetch(`http://localhost:1804/api/addStock/${id}`, {
+    fetch(`https://server-zdt4.onrender.com/api/addStock/${id}`, {
         method: "PATCH", 
         headers: {
             "Content-Type": "application/json"
