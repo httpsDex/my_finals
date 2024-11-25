@@ -24,6 +24,7 @@ addProductForm.addEventListener('submit', (event) => {
 
   fetch('https://server-zdt4.onrender.com/api/post', {
     method: 'POST',
+    mode: 'CORS',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   })
